@@ -31,33 +31,7 @@ For highest compression:
 wimlib-imagex capture C:\path\to\unpacked-image install.wim --compress=LZX:100
 ```
 
-## **2\. Resolving Windows Explorer Locks & File Operations Lag**
-
-### **Finding Processes Locking a Folder/File**
-
-- **Resource Monitor (**`resmon.exe`**)** → Associated Handles → Search for file/folder.
-    
-- **Process Explorer** → **Find Handle or DLL** → Enter filename.
-    
-- **Sysinternals Handle Utility**:
-    
-    ```
-    handle.exe "C:\path\to\folder"
-    ```
-    
-
-### **Forcing Unlock & Deletion**
-
-- Close all Explorer windows.
-    
-- **Task Manager** → End `explorer.exe`, then:
-    
-    ```
-    rmdir /s /q "C:\path\to\folder"
-    ```
-    
-
-## **3\. Handling ISO Mounting**
+## **2\. Handling ISO Mounting**
 
 ### **Finding Mounted ISO File Path**
 
@@ -74,7 +48,7 @@ select volume <volume number>
 assign mount="C:\empty-folder"
 ```
 
-## **4\. Creating a Bootable VHDX with Windows**
+## **3\. Creating a Bootable VHDX with Windows**
 
 ### **Steps:**
 
@@ -122,7 +96,7 @@ assign mount="C:\empty-folder"
     ```
     
 
-## **5\. Windows Sandbox vs. Containers**
+## **4\. Windows Sandbox vs. Containers**
 
 ### **Windows Sandbox**
 
@@ -147,7 +121,7 @@ assign mount="C:\empty-folder"
     ```
     
 
-## **6\. File System & Security**
+## **5\. File System & Security**
 
 ### **Mounting Any Volume to an NTFS Folder**
 
