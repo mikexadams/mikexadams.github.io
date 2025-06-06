@@ -6,10 +6,6 @@ A structured reference covering key tasks related to Windows imaging, virtual en
 
 To capture an unpacked Windows installation as an install.wim:
 
-powershell
-
-Copy
-
 ```
 Dism /Capture-Image /ImageFile:C:\path\to\install.wim /CaptureDir:C:\path\to\unpacked-image /Name:"Windows Image"
 ```
@@ -25,19 +21,11 @@ Dism /Capture-Image /ImageFile:C:\path\to\install.wim /CaptureDir:C:\path\to\unp
 
 To verify `.wim` integrity:
 
-powershell
-
-Copy
-
 ```
 wimlib-imagex optimize install.wim --check
 ```
 
 For highest compression:
-
-powershell
-
-Copy
 
 ```
 wimlib-imagex capture C:\path\to\unpacked-image install.wim --compress=LZX:100
@@ -81,19 +69,11 @@ wimlib-imagex capture C:\path\to\unpacked-image install.wim --compress=LZX:100
 
 ### **Finding Mounted ISO File Path**
 
-powershell
-
-Copy
-
 ```
 Get-Volume <drive letter> | Get-DiskImage | Select-Object ImagePath
 ```
 
 ### **Mounting ISO to an Empty Directory**
-
-powershell
-
-Copy
 
 ```
 Mount-DiskImage -ImagePath "C:\path\to\file.iso" -NoDriveLetter -StorageType ISO
@@ -202,10 +182,6 @@ assign mount="C:\empty-folder"
 ## **6\. File System & Security**
 
 ### **Mounting Any Volume to an NTFS Folder**
-
-powershell
-
-Copy
 
 ```
 diskpart
