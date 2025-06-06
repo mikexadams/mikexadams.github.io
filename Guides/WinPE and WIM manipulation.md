@@ -41,10 +41,6 @@ wimlib-imagex capture C:\path\to\unpacked-image install.wim --compress=LZX:100
     
 - **Sysinternals Handle Utility**:
     
-    powershell
-    
-    Copy
-    
     ```
     handle.exe "C:\path\to\folder"
     ```
@@ -55,10 +51,6 @@ wimlib-imagex capture C:\path\to\unpacked-image install.wim --compress=LZX:100
 - Close all Explorer windows.
     
 - **Task Manager** → End `explorer.exe`, then:
-    
-    powershell
-    
-    Copy
     
     ```
     rmdir /s /q "C:\path\to\folder"
@@ -88,20 +80,12 @@ assign mount="C:\empty-folder"
 
 1. **Create VHDX**:
     
-    powershell
-    
-    Copy
-    
     ```
     New-VHD -Path "C:\VMs\Windows.vhdx" -SizeBytes 30GB -Dynamic
     Mount-VHD "C:\VMs\Windows.vhdx"
     ```
     
 2. **Partition the Disk** (`diskpart`):
-    
-    powershell
-    
-    Copy
     
     ```
     select disk 1
@@ -119,29 +103,17 @@ assign mount="C:\empty-folder"
     
 3. **Apply Windows Image**:
     
-    powershell
-    
-    Copy
-    
     ```
     Dism /Apply-Image /ImageFile:C:\path\to\install.wim /Index:1 /ApplyDir:C:\
     ```
     
 4. **Install Boot Files**:
     
-    powershell
-    
-    Copy
-    
     ```
     bcdboot C:\Windows /s S: /f UEFI
     ```
     
 5. **Detach & Use in Hyper-V**:
-    
-    powershell
-    
-    Copy
     
     ```
     Dismount-VHD "C:\VMs\Windows.vhdx"
@@ -168,10 +140,6 @@ assign mount="C:\empty-folder"
 - **Hyper-V Containers** (isolated Windows kernel).
     
 - Run Windows-based images like:
-    
-    powershell
-    
-    Copy
     
     ```
     docker pull mcr.microsoft.com/windows/servercore:ltsc2022
